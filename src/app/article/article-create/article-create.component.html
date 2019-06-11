@@ -1,31 +1,37 @@
 <mat-card>
+  <form (submit)="onAddArticle(articleForm)" #articleForm="ngForm">
+
+
 <mat-form-field>
-<input type="text" matInput [(ngModel)]="enteredTitleValue">
-</mat-form-field>
-<hr>
-<mat-form-field>
-<input type="text" matInput [(ngModel)]="enteredShortTitleValue">
-</mat-form-field>
-<hr>
-<mat-form-field>
-<textarea rows="6" matInput [(ngModel)]="enteredSummaryValue"></textarea>
-</mat-form-field>
-<hr>
-<mat-form-field>
-<input type="text" matInput [(ngModel)]="enteredImgCaptionValue">
-</mat-form-field>
-<hr>
-<mat-form-field>
-<input type="text" matInput [(ngModel)]="enteredImgTitleValue">
-</mat-form-field>
-<hr>
-<mat-form-field>
-<input type="text" matInput [(ngModel)]="enteredAltTextValue">
-</mat-form-field>
-<button
-   mat-raised-button
-   color="accent"
-   (click)="onAddArticle()">Save Article</button>
+    <input type="text" name="title" matInput ngModel required>
+    </mat-form-field>
+    <hr>
+    <mat-form-field>
+    <input type="text" name="shortTitle" matInput ngModel required>
+    </mat-form-field>
+    <hr>
+    <mat-form-field>
+    <textarea rows="6" name="summary" matInput ngModel required
+          minlength="50"></textarea>
+    </mat-form-field>
+    <hr>
+    <mat-form-field>
+    <input type="text" matInput name="imageCaption" ngModel required>
+    </mat-form-field>
+    <hr>
+    <mat-form-field>
+    <input type="text" matInput name="imageTitle" ngModel required>
+    </mat-form-field>
+    <hr>
+    <mat-form-field>
+    <input type="text" matInput name="altText" ngModel>
+    </mat-form-field>
+    <button
+       mat-raised-button
+       color="accent"
+       type="submit">Save Article</button>
+
+  </form>
 </mat-card>
 
 

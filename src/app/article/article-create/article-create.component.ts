@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core'
 import { style } from '@angular/animations';
 
 import { Article } from '../article.model'
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-article-create',
@@ -19,15 +20,18 @@ export class ArticleCreateComponent{
 
 
   newArticle='NO CONTENT';
-  onAddArticle(){
+  onAddArticle(form: NgForm){
 
+    if(form.invalid){
+      return;
+    }
     const article: Article = {
-      title: this.enteredTitleValue,
-      shortTitle: this.enteredShortTitleValue,
-      summary: this.enteredSummaryValue,
-      imageTitle: this.enteredImgTitleValue,
-      imageCaption: this.enteredImgCaptionValue,
-      altText: this.enteredAltTextValue
+      title: form.value.title,
+      shortTitle: form.value.shortTitle,
+      summary: form.value.summary,
+      imageTitle: form.value.imageTitle,
+      imageCaption: form.value.imageCaption,
+      altText: form.value.altText
     }
 
     this.articleCreated.emit(article);
