@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 
-import { Article } from './article/article.model'
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,10 +8,6 @@ import { Article } from './article/article.model'
 export class AppComponent {
 
   title = 'bai';
-  storedArticles: Article[]=[];
 
-  onArticleAdded(article){
-    this.storedArticles.push(article);
-  }
 
 }

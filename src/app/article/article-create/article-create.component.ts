@@ -1,8 +1,8 @@
-import { Component, EventEmitter, Output } from '@angular/core'
+import { Component } from '@angular/core'
 import { style } from '@angular/animations';
 
-import { Article } from '../article.model'
 import { NgForm } from '@angular/forms';
+import { ArticlesService } from '../articles.service';
 
 @Component({
   selector: 'app-article-create',
@@ -16,25 +16,26 @@ export class ArticleCreateComponent{
   enteredSummaryValue='';
   enteredImgCaptionValue='';
   enteredImgTitleValue='';
-  @Output() articleCreated=new EventEmitter<Article>();
+
+
+  constructor(public articlesService: ArticlesService){}
 
 
   newArticle='NO CONTENT';
   onAddArticle(form: NgForm){
 
+
     if(form.invalid){
       return;
     }
-    const article: Article = {
-      title: form.value.title,
-      shortTitle: form.value.shortTitle,
-      summary: form.value.summary,
-      imageTitle: form.value.imageTitle,
-      imageCaption: form.value.imageCaption,
-      altText: form.value.altText
-    }
 
-    this.articleCreated.emit(article);
+    this.articlesService.addArticle(form.value.title,
+      form.value.shortTitle,
+      form.value.summary,
+      form.value.imageTitle,
+      form.value.imageCaption,
+      form.value.altText);
 
+      form.resetForm();
   }
 }
