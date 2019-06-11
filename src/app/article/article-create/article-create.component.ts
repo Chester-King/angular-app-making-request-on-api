@@ -1,5 +1,7 @@
-import { Component } from '@angular/core'
+import { Component, EventEmitter, Output } from '@angular/core'
 import { style } from '@angular/animations';
+
+import { Article } from '../article.model'
 
 @Component({
   selector: 'app-article-create',
@@ -13,12 +15,22 @@ export class ArticleCreateComponent{
   enteredSummaryValue='';
   enteredImgCaptionValue='';
   enteredImgTitleValue='';
+  @Output() articleCreated=new EventEmitter<Article>();
 
 
   newArticle='NO CONTENT';
   onAddArticle(){
 
-    this.newArticle=this.enteredAltTextValue+this.enteredImgCaptionValue+this.enteredShortTitleValue;
+    const article: Article = {
+      title: this.enteredTitleValue,
+      shortTitle: this.enteredShortTitleValue,
+      summary: this.enteredSummaryValue,
+      imageTitle: this.enteredImgTitleValue,
+      imageCaption: this.enteredImgCaptionValue,
+      altText: this.enteredAltTextValue
+    }
+
+    this.articleCreated.emit(article);
 
   }
 }

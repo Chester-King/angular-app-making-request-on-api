@@ -1,17 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MatInputModule,MatCardModule,MatButtonModule } from '@angular/material'
+import { MatInputModule,
+        MatCardModule,
+        MatButtonModule,
+        MatToolbarModule,
+        MatExpansionModule } from '@angular/material'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ArticleCreateComponent } from './article/article-create/article-create.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderComponent } from './header/header.component';
+import { ArticleListComponent } from './article/article-list/article-list.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    ArticleCreateComponent
+    ArticleCreateComponent,
+    HeaderComponent,
+    ArticleListComponent
   ],
   imports: [
     BrowserModule,
@@ -20,9 +28,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     BrowserAnimationsModule,
     MatInputModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatToolbarModule,
+    MatExpansionModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent,HeaderComponent]
 })
 export class AppModule { }
