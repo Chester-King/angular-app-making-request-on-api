@@ -1,0 +1,32 @@
+<mat-card>
+<mat-form-field>
+<input type="text" matInput [(ngModel)]="enteredTitleValue">
+</mat-form-field>
+<hr>
+<mat-form-field>
+<input type="text" matInput [(ngModel)]="enteredShortTitleValue">
+</mat-form-field>
+<hr>
+<mat-form-field>
+<textarea rows="6" matInput [(ngModel)]="enteredSummaryValue"></textarea>
+</mat-form-field>
+<hr>
+<mat-form-field>
+<input type="text" matInput [(ngModel)]="enteredImgCaptionValue">
+</mat-form-field>
+<hr>
+<mat-form-field>
+<input type="text" matInput [(ngModel)]="enteredImgTitleValue">
+</mat-form-field>
+<hr>
+<mat-form-field>
+<input type="text" matInput [(ngModel)]="enteredAltTextValue">
+</mat-form-field>
+<button
+   mat-raised-button
+   color="accent"
+   (click)="onAddArticle()">Save Article</button>
+</mat-card>
+
+
+<p>{{ newArticle }}</p>
